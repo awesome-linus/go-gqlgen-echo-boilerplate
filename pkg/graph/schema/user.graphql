@@ -1,0 +1,36 @@
+type User implements Node {
+  id: ID!
+  name: String!
+  email: String!
+  tasks: [Task!]
+}
+
+type UserEdge implements Edge {
+  cursor: String!
+  node: User!
+}
+
+type UserConnection implements Connection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+}
+
+enum UserOrderFields {
+  LATEST
+  NAME
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  id: ID!
+  name: String
+  email: String
+}
+
+input DeleteUserInput {
+  id: ID!
+}

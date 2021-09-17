@@ -1,0 +1,15 @@
+type Query {
+  users(orderBy: UserOrderFields!,  page: PaginationInput!): UserConnection!
+  tasks(input: TasksInput!, orderBy: TaskOrderFields!,  page: PaginationInput!): TaskConnection!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(input: UpdateUserInput!): User!
+  deleteUser(input: DeleteUserInput!): User!
+  createTask(input: CreateTaskInput!): Task!
+  updateTask(input: UpdateTaskInput!): Task!
+  deleteTask(input: DeleteTaskInput!): Task!
+}
+
+scalar Time

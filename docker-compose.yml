@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: docker/local/mysql/Dockerfile
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-go-graphql-echo-boilerplate-data:/var/lib/mysql
+volumes:
+  mysql-go-graphql-echo-boilerplate-data:
